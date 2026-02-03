@@ -3,16 +3,135 @@ import uuid
 import pandas as pd
 
 produtos = ["cartoes", "emprestimos", "pagamentos", "renegociacao"]
+tipos_aceita_erro_sistema = ["estado", "evento"]
+tempos_de_espera = ["ontem", "duas semanas atras", "alguns dias"]
 
-mensagens_sistema = [
-    "nenhuma oferta disponível",
-    "tente novamente mais tarde",
-    "serviço indisponível no momento",
-    "erro inesperado",
-    "falha temporária no sistema",
-    "operação indisponível",
-]
-
+mensagens_sistema = {
+    "cartoes": [
+        {
+            "texto": "não foi possível carregar os dados do cartão",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao consultar limite disponível",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "falha ao processar solicitação do cartão",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "serviço de cartões temporariamente indisponível",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao carregar extrato do cartão",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "tempo limite excedido ao consultar cartão",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao tentar desbloquear cartão",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "falha ao processar compra",
+            "tipos_aceitos": ["evento"],
+        },
+    ],
+    "emprestimos": [
+        {
+            "texto": "não foi possível carregar os dados do empréstimo",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao consultar saldo devedor",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "falha ao processar solicitação de empréstimo",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "serviço de empréstimos temporariamente indisponível",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao carregar parcelas do empréstimo",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "tempo limite excedido ao consultar contrato",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao acessar detalhes do contrato",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+    ],
+    "pagamentos": [
+        {
+            "texto": "não foi possível processar o pagamento",
+            "tipos_aceitos": ["evento"],
+        },
+        {
+            "texto": "erro ao confirmar transação",
+            "tipos_aceitos": ["evento"],
+        },
+        {
+            "texto": "falha na comunicação com o banco",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "serviço de pagamentos temporariamente indisponível",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao gerar comprovante",
+            "tipos_aceitos": ["evento"],
+        },
+        {
+            "texto": "tempo limite excedido ao processar pagamento",
+            "tipos_aceitos": ["evento"],
+        },
+        {
+            "texto": "erro ao consultar status do pagamento",
+            "tipos_aceitos": ["estado"],
+        },
+    ],
+    "renegociacao": [
+        {
+            "texto": "não foi possível carregar propostas de renegociação",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao consultar opções de parcelamento",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "falha ao processar solicitação de renegociação",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "serviço de renegociação temporariamente indisponível",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao simular novas condições",
+            "tipos_aceitos": ["estado"],
+        },
+        {
+            "texto": "tempo limite excedido ao consultar dívidas",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+        {
+            "texto": "erro ao acessar acordo de renegociação",
+            "tipos_aceitos": ["estado", "evento"],
+        },
+    ],
+}
 
 templates_por_produto = {
     "cartoes": [
@@ -469,25 +588,167 @@ problemas_por_produto = {
     ],
 }
 
-tempos_de_espera = ["ontem", "duas semanas atras", "alguns dias"]
+
+templates_sentimento = [
+    {
+        "texto": "Gostaria de informar que {relato}. Aguardo retorno.",
+        "sentimento": "neutro",
+        "peso": 5,
+    },
+    {
+        "texto": "Venho comunicar que {relato}. Fico no aguardo.",
+        "sentimento": "neutro",
+        "peso": 5,
+    },
+    {
+        "texto": "Informo que {relato}. Peço providências.",
+        "sentimento": "neutro",
+        "peso": 5,
+    },
+    {
+        "texto": "Preciso relatar que {relato}. Agradeço a atenção.",
+        "sentimento": "neutro",
+        "peso": 5,
+    },
+    {
+        "texto": "{relato}. Solicito análise.",
+        "sentimento": "neutro",
+        "peso": 5,
+    },
+    {
+        "texto": "Infelizmente, {relato}. Espero que resolvam dessa vez.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "Estou decepcionado, pois {relato}. Já estou cansado dessa situação.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "Mais uma vez, {relato}. Isso está me causando muitos transtornos.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "Lamentavelmente, {relato}. Preciso de uma solução urgente.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "É frustrante, mas {relato}. Não sei mais o que fazer.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "Novamente venho relatar que {relato}. Já perdi a conta de quantas vezes entrei em contato.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "{relato}. Sinceramente, estou muito desapontado com o atendimento.",
+        "sentimento": "frustrado",
+        "peso": 5,
+    },
+    {
+        "texto": "É inadmissível! {relato}. Exijo uma solução imediata!",
+        "sentimento": "irritado",
+        "peso": 5,
+    },
+    {
+        "texto": "Estou muito insatisfeito! {relato}. Quero uma resposta HOJE!",
+        "sentimento": "irritado",
+        "peso": 5,
+    },
+    {
+        "texto": "Não é possível que {relato}! Isso não pode continuar assim!",
+        "sentimento": "irritado",
+        "peso": 5,
+    },
+    {
+        "texto": "Isso é inaceitável! {relato}. Estou perdendo minha paciência!",
+        "sentimento": "irritado",
+        "peso": 5,
+    },
+    {
+        "texto": "Pelo amor de Deus! {relato}. Vocês precisam resolver isso AGORA!",
+        "sentimento": "irritado",
+        "peso": 5,
+    },
+    {
+        "texto": "É UM ABSURDO! {relato}. VOU PROCURAR MEUS DIREITOS!",
+        "sentimento": "indignado",
+        "peso": 3,
+    },
+    {
+        "texto": "ISSO É UMA VERGONHA! {relato}. Vou registrar reclamação no Procon e no Banco Central!",
+        "sentimento": "indignado",
+        "peso": 3,
+    },
+    {
+        "texto": "NÃO AGUENTO MAIS! {relato}. Vou entrar com ação judicial se não resolverem!",
+        "sentimento": "indignado",
+        "peso": 3,
+    },
+    {
+        "texto": "QUE FALTA DE RESPEITO! {relato}. Vou expor isso nas redes sociais!",
+        "sentimento": "indignado",
+        "peso": 3,
+    },
+    {
+        "texto": "REVOLTANTE! {relato}. Já registrei reclamação no consumidor.gov.br e vou acionar meu advogado!",
+        "sentimento": "indignado",
+        "peso": 3,
+    },
+]
+
+
+def gerar_relato(template_produto, problema, tempo, template_sentimento):
+    relato_base = template_produto['texto'].format(
+        problema=problema['texto'],
+        tempo=tempo
+    )
+    
+    if template_sentimento['texto'].startswith("{relato}"):
+        relato_formatado = relato_base
+    else:
+        relato_formatado = relato_base[0].lower() + relato_base[1:]
+    
+    texto_final = template_sentimento['texto'].format(relato=relato_formatado)
+    
+    return texto_final
 
 
 if __name__ == "__main__":
     reclamacoes = []
-    for i in range(0, 10000):
+    pesos = [t['peso'] for t in templates_sentimento]
+    
+    for i in range(0, 20000):
         produto = random.choice(produtos)
         problema = random.choice(problemas_por_produto[produto])
         tempo = random.choice(tempos_de_espera)
-        template = random.choice(templates_por_produto[produto])
+        template_produto = random.choice(templates_por_produto[produto])
         
-        if problema['tipo'] not in template['tipos_aceitos']:
+        if problema['tipo'] not in template_produto['tipos_aceitos']:
             continue
         
-        texto = template['texto'].format(problema=problema['texto'], tempo=tempo)
+        template_sentimento = random.choices(templates_sentimento, weights=pesos, k=1)[0]
         
-        if random.random() < 0.2:
-            texto = f"{texto} aparecendo o erro {random.choice(mensagens_sistema)}"
+        texto = gerar_relato(template_produto, problema, tempo, template_sentimento)
+        
+        if problema['tipo'] in tipos_aceita_erro_sistema and random.random() < 0.2:
+            erros_compativeis = [
+                erro for erro in mensagens_sistema[produto]
+                if problema['tipo'] in erro['tipos_aceitos']
+            ]
+            if erros_compativeis:
+                erro_sistema = random.choice(erros_compativeis)
+                texto = f"{texto} O sistema apresentou: {erro_sistema['texto']}."
 
-        reclamacoes.append({"id": uuid.uuid4(), "produto": produto, "relato": texto})
+        reclamacoes.append({
+            "id": uuid.uuid4(),
+            "produto": produto,
+            "relato": texto
+        })
 
-    pd.DataFrame(reclamacoes).to_csv("reclamacoes.csv")
+    pd.DataFrame(reclamacoes).to_csv("reclamacoes.csv", index=False)
