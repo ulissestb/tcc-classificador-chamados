@@ -722,20 +722,22 @@ def gerar_relato(template_produto, problema, tempo, template_sentimento):
 if __name__ == "__main__":
     reclamacoes = []
     pesos = [t['peso'] for t in templates_sentimento]
-    
+
     for i in range(0, 20000):
         produto = random.choice(produtos)
-        problema = random.choice(problemas_por_produto[produto])
-        tempo = random.choice(tempos_de_espera)
         template_produto = random.choice(templates_por_produto[produto])
+
+        problemas_validos = [
+            p for p in problemas_por_produto[produto]
+            if p['tipo'] in template_produto['tipos_aceitos']
+        ]
         
-        if problema['tipo'] not in template_produto['tipos_aceitos']:
-            continue
-        
+        problema = random.choice(problemas_validos)
+        tempo = random.choice(tempos_de_espera)
         template_sentimento = random.choices(templates_sentimento, weights=pesos, k=1)[0]
-        
+
         texto = gerar_relato(template_produto, problema, tempo, template_sentimento)
-        
+
         if problema['tipo'] in tipos_aceita_erro_sistema and random.random() < 0.2:
             erros_compativeis = [
                 erro for erro in mensagens_sistema[produto]
