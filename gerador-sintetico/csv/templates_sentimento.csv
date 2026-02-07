@@ -1,0 +1,23 @@
+texto,sentimento,peso
+Gostaria de informar que {relato}. Aguardo retorno.,neutro,5
+Venho comunicar que {relato}. Fico no aguardo.,neutro,5
+Informo que {relato}. Peço providências.,neutro,5
+Preciso relatar que {relato}. Agradeço a atenção.,neutro,5
+{relato}. Solicito análise.,neutro,5
+"Infelizmente, {relato}. Espero que resolvam dessa vez.",frustrado,5
+"Estou decepcionado, pois {relato}. Já estou cansado dessa situação.",frustrado,5
+"Mais uma vez, {relato}. Isso está me causando muitos transtornos.",frustrado,5
+"Lamentavelmente, {relato}. Preciso de uma solução urgente.",frustrado,5
+"É frustrante, mas {relato}. Não sei mais o que fazer.",frustrado,5
+Novamente venho relatar que {relato}. Já perdi a conta de quantas vezes entrei em contato.,frustrado,5
+"{relato}. Sinceramente, estou muito desapontado com o atendimento.",frustrado,5
+É inadmissível! {relato}. Exijo uma solução imediata!,irritado,5
+Estou muito insatisfeito! {relato}. Quero uma resposta HOJE!,irritado,5
+Não é possível que {relato}! Isso não pode continuar assim!,irritado,5
+Isso é inaceitável! {relato}. Estou perdendo minha paciência!,irritado,5
+Pelo amor de Deus! {relato}. Vocês precisam resolver isso AGORA!,irritado,5
+É UM ABSURDO! {relato}. VOU PROCURAR MEUS DIREITOS!,indignado,3
+ISSO É UMA VERGONHA! {relato}. Vou registrar reclamação no Procon e no Banco Central!,indignado,3
+NÃO AGUENTO MAIS! {relato}. Vou entrar com ação judicial se não resolverem!,indignado,3
+QUE FALTA DE RESPEITO! {relato}. Vou expor isso nas redes sociais!,indignado,3
+REVOLTANTE! {relato}. Já registrei reclamação no consumidor.gov.br e vou acionar meu advogado!,indignado,3

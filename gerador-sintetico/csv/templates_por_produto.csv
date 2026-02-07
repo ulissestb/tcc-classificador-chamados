@@ -1,0 +1,101 @@
+produto,texto,tipos_aceitos
+cartoes,"Estou com um problema no meu cartão, pois ocorreu {problema} e não consigo utilizá-lo normalmente.",evento|acao_errada
+cartoes,"Desde {tempo}, meu cartão apresenta {problema} e não tive retorno do banco.",estado
+cartoes,"Ao tentar realizar uma compra, identifiquei {problema} no cartão.",evento|acao_errada
+cartoes,Meu cartão apresentou {problema} recentemente e isso está me prejudicando.,evento|acao_errada
+cartoes,Estou enfrentando dificuldades com meu cartão devido a {problema}.,estado|acao_errada
+cartoes,"Já tentei resolver, mas o cartão continua com {problema}.",estado
+cartoes,O cartão ficou indisponível após ocorrer {problema}.,evento
+cartoes,Identifiquei {problema} no cartão e preciso de uma solução.,estado|evento|acao_errada
+cartoes,Meu cartão está com {problema} e não consigo fazer compras.,estado
+cartoes,"Desde {tempo}, o cartão vem apresentando {problema}.",estado
+cartoes,"Estou insatisfeito, pois meu cartão apresentou {problema}.",evento|acao_errada
+cartoes,O banco ainda não resolveu o {problema} do meu cartão.,estado|acao_errada
+cartoes,"Após uma tentativa de uso, o cartão passou a apresentar {problema}.",evento
+cartoes,Não consigo utilizar meu cartão corretamente por causa de {problema}.,estado|acao_errada
+cartoes,Meu cartão apresentou {problema} sem aviso prévio.,evento|acao_errada
+cartoes,Estou aguardando solução para {problema} relacionado ao cartão.,estado|acao_errada
+cartoes,O cartão apresentou erro recorrente de {problema}.,evento
+cartoes,"Desde {tempo}, tento resolver {problema} no cartão sem sucesso.",estado|acao_errada
+cartoes,O cartão está com {problema} e o atendimento não solucionou.,estado|acao_errada
+cartoes,Meu cartão apresentou {problema} e isso gerou transtornos.,evento|acao_errada
+cartoes,Identifiquei {problema} ao tentar utilizar o cartão.,evento|acao_errada
+cartoes,O cartão não está funcionando corretamente devido a {problema}.,estado
+cartoes,Preciso de ajuda para resolver {problema} no cartão.,acao_errada
+cartoes,Estou tendo problemas frequentes no cartão relacionados a {problema}.,estado|acao_errada
+cartoes,Solicito a regularização do {problema} apresentado no cartão.,acao_errada
+emprestimos,"Estou enfrentando um problema no meu empréstimo, pois ocorreu {problema}.",evento|acao_errada
+emprestimos,"Desde {tempo}, meu empréstimo apresenta {problema} e não foi resolvido.",estado
+emprestimos,"Ao consultar meu empréstimo, identifiquei {problema}.",estado|evento|acao_errada
+emprestimos,Meu empréstimo apresentou {problema} e isso está me causando dificuldades.,evento|acao_errada
+emprestimos,O valor do empréstimo está incorreto devido a {problema}.,acao_errada
+emprestimos,Estou com dificuldades para lidar com o empréstimo por causa de {problema}.,estado|acao_errada
+emprestimos,"Já tentei contato, mas o problema de {problema} no empréstimo persiste.",estado|acao_errada
+emprestimos,O empréstimo apresenta inconsistências relacionadas a {problema}.,acao_errada
+emprestimos,"Desde a contratação, percebi {problema} no empréstimo.",estado|evento
+emprestimos,Meu empréstimo foi afetado por {problema} sem explicação clara.,evento|acao_errada
+emprestimos,Identifiquei {problema} no contrato do empréstimo.,evento|acao_errada
+emprestimos,O banco ainda não solucionou {problema} referente ao empréstimo.,estado|acao_errada
+emprestimos,O empréstimo gerou transtornos devido a {problema}.,evento|acao_errada
+emprestimos,Estou aguardando retorno sobre {problema} no empréstimo.,estado
+emprestimos,Não consigo obter informações corretas por causa de {problema} no empréstimo.,estado|acao_errada
+emprestimos,O empréstimo apresentou erro relacionado a {problema}.,evento
+emprestimos,Meu empréstimo está com status incorreto devido a {problema}.,estado
+emprestimos,"Estou insatisfeito com o empréstimo, pois ocorreu {problema}.",evento|acao_errada
+emprestimos,Preciso de esclarecimentos sobre {problema} no empréstimo.,estado
+emprestimos,Solicito uma solução para {problema} relacionado ao empréstimo.,acao_errada
+emprestimos,O empréstimo apresentou falhas causadas por {problema}.,acao_errada
+emprestimos,Identifiquei {problema} ao tentar acompanhar o empréstimo.,estado
+emprestimos,O empréstimo não está conforme o contratado por causa de {problema}.,acao_errada
+emprestimos,Meu empréstimo está gerando dificuldades devido a {problema}.,estado|acao_errada
+emprestimos,Peço a regularização do {problema} no meu empréstimo.,acao_errada
+pagamentos,"Estou com um problema em um pagamento, pois ocorreu {problema}.",evento|acao_errada
+pagamentos,"Desde {tempo}, um pagamento apresenta {problema}.",estado
+pagamentos,"Ao realizar um pagamento, identifiquei {problema}.",evento|acao_errada
+pagamentos,Meu pagamento não foi concluído corretamente devido a {problema}.,evento|acao_errada
+pagamentos,O pagamento apresentou {problema} e não foi regularizado.,estado|acao_errada
+pagamentos,Estou enfrentando dificuldades em pagamentos por causa de {problema}.,estado|acao_errada
+pagamentos,"Já tentei resolver, mas o pagamento continua com {problema}.",estado
+pagamentos,O sistema registrou {problema} em um pagamento recente.,evento
+pagamentos,"Desde {tempo}, aguardo solução para {problema} no pagamento.",estado
+pagamentos,O pagamento não foi processado corretamente por causa de {problema}.,evento
+pagamentos,Houve erro no pagamento relacionado a {problema}.,evento
+pagamentos,O valor do pagamento está incorreto devido a {problema}.,acao_errada
+pagamentos,O pagamento foi afetado por {problema}.,evento|acao_errada
+pagamentos,"Estou insatisfeito com o pagamento, pois ocorreu {problema}.",evento|acao_errada
+pagamentos,O banco ainda não resolveu {problema} em um pagamento.,estado|acao_errada
+pagamentos,Identifiquei {problema} ao consultar um pagamento realizado.,estado|acao_errada
+pagamentos,Não consigo realizar pagamentos normalmente por causa de {problema}.,estado
+pagamentos,O pagamento apresentou falhas recorrentes de {problema}.,evento
+pagamentos,Houve atraso no pagamento devido a {problema}.,estado
+pagamentos,O pagamento gerou transtornos por conta de {problema}.,evento|acao_errada
+pagamentos,Estou aguardando retorno sobre {problema} em um pagamento.,estado
+pagamentos,O pagamento não foi compensado corretamente devido a {problema}.,estado|acao_errada
+pagamentos,Preciso de ajuda para resolver {problema} em um pagamento.,estado|acao_errada
+pagamentos,O pagamento apresentou inconsistência relacionada a {problema}.,acao_errada
+pagamentos,Solicito esclarecimentos sobre {problema} em um pagamento.,estado
+renegociacao,"Estou tentando renegociar minha dívida, mas ocorreu {problema}.",evento
+renegociacao,"Desde {tempo}, percebi {problema} na renegociação solicitada.",estado|evento
+renegociacao,A renegociação apresenta {problema} e não consigo prosseguir.,estado
+renegociacao,"Solicitei a renegociação, porém houve {problema}.",evento
+renegociacao,Estou enfrentando dificuldades na renegociação devido a {problema}.,estado|acao_errada
+renegociacao,O processo de renegociação está com {problema}.,estado
+renegociacao,Identifiquei {problema} ao tentar renegociar minha dívida.,evento|acao_errada
+renegociacao,A renegociação não ocorreu corretamente por causa de {problema}.,evento
+renegociacao,O valor apresentado na renegociação está incorreto devido a {problema}.,acao_errada
+renegociacao,"Desde {tempo}, aguardo solução para {problema} na renegociação.",estado
+renegociacao,A renegociação foi afetada por {problema}.,evento
+renegociacao,Não obtive retorno do banco sobre {problema} na renegociação.,estado
+renegociacao,Estou insatisfeito com a renegociação por conta de {problema}.,estado|acao_errada
+renegociacao,O banco não resolveu {problema} relacionado à renegociação.,estado|acao_errada
+renegociacao,A renegociação apresentou falhas relacionadas a {problema}.,acao_errada
+renegociacao,Preciso de ajuda para resolver {problema} na renegociação.,estado|acao_errada
+renegociacao,Identifiquei {problema} após concluir a renegociação.,evento
+renegociacao,A renegociação não refletiu corretamente por causa de {problema}.,estado
+renegociacao,Houve inconsistência na renegociação devido a {problema}.,acao_errada
+renegociacao,O processo de renegociação está parado por conta de {problema}.,estado
+renegociacao,A renegociação gerou transtornos em função de {problema}.,evento|acao_errada
+renegociacao,"Solicitei renegociação, mas encontrei {problema}.",evento|acao_errada
+renegociacao,O acordo de renegociação apresenta {problema}.,acao_errada
+renegociacao,"Desde {tempo}, tento resolver {problema} na renegociação.",estado
+renegociacao,Solicito a correção do {problema} identificado na renegociação.,acao_errada

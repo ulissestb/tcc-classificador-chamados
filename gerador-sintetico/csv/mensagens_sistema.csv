@@ -1,0 +1,30 @@
+produto,texto,tipos_aceitos
+cartoes,não foi possível carregar os dados do cartão,estado|evento
+cartoes,erro ao consultar limite disponível,estado
+cartoes,falha ao processar solicitação do cartão,estado|evento
+cartoes,serviço de cartões temporariamente indisponível,estado|evento
+cartoes,erro ao carregar extrato do cartão,estado
+cartoes,tempo limite excedido ao consultar cartão,estado|evento
+cartoes,erro ao tentar desbloquear cartão,estado
+cartoes,falha ao processar compra,evento
+emprestimos,não foi possível carregar os dados do empréstimo,estado|evento
+emprestimos,erro ao consultar saldo devedor,estado
+emprestimos,falha ao processar solicitação de empréstimo,estado|evento
+emprestimos,serviço de empréstimos temporariamente indisponível,estado|evento
+emprestimos,erro ao carregar parcelas do empréstimo,estado
+emprestimos,tempo limite excedido ao consultar contrato,estado|evento
+emprestimos,erro ao acessar detalhes do contrato,estado|evento
+pagamentos,não foi possível processar o pagamento,evento
+pagamentos,erro ao confirmar transação,evento
+pagamentos,falha na comunicação com o banco,estado|evento
+pagamentos,serviço de pagamentos temporariamente indisponível,estado|evento
+pagamentos,erro ao gerar comprovante,evento
+pagamentos,tempo limite excedido ao processar pagamento,evento
+pagamentos,erro ao consultar status do pagamento,estado
+renegociacao,não foi possível carregar propostas de renegociação,estado|evento
+renegociacao,erro ao consultar opções de parcelamento,estado
+renegociacao,falha ao processar solicitação de renegociação,estado|evento
+renegociacao,serviço de renegociação temporariamente indisponível,estado|evento
+renegociacao,erro ao simular novas condições,estado
+renegociacao,tempo limite excedido ao consultar dívidas,estado|evento
+renegociacao,erro ao acessar acordo de renegociação,estado|evento
