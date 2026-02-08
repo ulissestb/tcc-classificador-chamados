@@ -27,20 +27,20 @@ def pipeline():
 def plot_result(y_test, y_pred):
     cm = confusion_matrix(y_test, y_pred)
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                xticklabels=[1, 2, 3],
-                yticklabels=[1, 2, 3])
+                xticklabels=["baixa", "media", "alta"],
+                yticklabels=["baixa", "media", "alta"])
     plt.xlabel('Predito')
     plt.ylabel('Real')
     plt.title('Matriz de Confusão - TF-IDF + Regressão Logística')
     #TODO: Salvar a imagem da matriz de confusão
     plt.show()
-    
+    plt.savefig("matriz_confusao.png")
 if __name__ == "__main__":
-    df = pd.read_csv("reclamacoes.csv")
+    df = pd.read_csv("relatos.csv", sep=";")
     X = df['relato']
-    y = df['nivel_urgencia']
+    y = df['urgencia']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     model = pipeline()
     model.fit(X_train, y_train)

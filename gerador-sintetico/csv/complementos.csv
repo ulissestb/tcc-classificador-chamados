@@ -1,0 +1,210 @@
+tipo,chave,valor
+saudacao,,Boa tarde
+saudacao,,Boa noite
+saudacao,,Bom dia
+saudacao,,Olá
+saudacao,,Oi
+saudacao,,Olá
+saudacao,,Oi
+saudacao,,Pessoal
+saudacao,,E aí
+saudacao,,Opa
+saudacao,,
+saudacao,,
+saudacao,,
+saudacao,,
+saudacao,,
+saudacao,,
+fechamento,, Aguardo retorno.
+fechamento,, Obrigado.
+fechamento,, Obrigada.
+fechamento,, Agradeço a atenção.
+fechamento,, Att.
+fechamento,, Grato.
+fechamento,, Grata.
+fechamento,, Valeu.
+fechamento,, Espero uma solução.
+fechamento,, Desde já agradeço.
+fechamento,, Podem me ajudar?
+fechamento,, O que eu faço?
+fechamento,,
+fechamento,,
+fechamento,,
+fechamento,,
+fechamento,,
+fechamento,,
+complemento_urgencia,baixa,Não é urgente
+complemento_urgencia,baixa,Quando puderem me responder tá tranquilo
+complemento_urgencia,baixa,Sem pressa
+complemento_urgencia,baixa,É mais uma dúvida mesmo
+complemento_urgencia,baixa,Posso esperar
+complemento_urgencia,baixa,Quero resolver com calma
+complemento_urgencia,baixa,
+complemento_urgencia,baixa,
+complemento_urgencia,baixa,
+complemento_urgencia,baixa,
+complemento_urgencia,media,Gostaria de resolver isso em breve
+complemento_urgencia,media,Preciso de retorno essa semana
+complemento_urgencia,media,Tá me incomodando
+complemento_urgencia,media,Não é urgente mas é importante
+complemento_urgencia,media,Quero resolver antes que piore
+complemento_urgencia,media,Preciso de uma resposta
+complemento_urgencia,media,
+complemento_urgencia,media,
+complemento_urgencia,media,
+complemento_urgencia,alta,Preciso resolver hoje
+complemento_urgencia,alta,Isso tá me prejudicando bastante
+complemento_urgencia,alta,Tô parado por causa disso
+complemento_urgencia,alta,Preciso de solução urgente
+complemento_urgencia,alta,Cada dia piora a situação
+complemento_urgencia,alta,Tenho compromisso que depende disso
+complemento_urgencia,alta,
+complemento_urgencia,alta,
+complemento_urgencia,alta,Se não resolverem hoje vou ter prejuízo enorme
+complemento_urgencia,alta,URGENTE
+complemento_urgencia,alta,Vou acionar a justiça se não resolverem
+complemento_urgencia,alta,Estou desesperado com isso
+complemento_urgencia,alta,Não tenho como pagar contas por causa disso
+complemento_urgencia,alta,Cada minuto perco dinheiro
+complemento_urgencia,alta,
+complemento_urgencia,alta,
+complemento_compartilhado,,Preciso resolver isso
+complemento_compartilhado,,Quero resolver de uma vez
+complemento_compartilhado,,Não sei mais o que fazer
+complemento_compartilhado,,Preciso que me ajudem
+complemento_compartilhado,,Essa situação é complicada
+complemento_compartilhado,,Já tentei sozinho e não consegui
+complemento_compartilhado,,Tô preocupado com isso
+complemento_compartilhado,,Preciso de uma solução
+complemento_compartilhado,,Tô perdendo tempo com isso
+complemento_compartilhado,,Isso tá me tirando o sono
+complemento_compartilhado,,Se não resolverem vou buscar outro caminho
+complemento_compartilhado,,Gostaria de resolver o mais rápido possível
+complemento_compartilhado,,Tô tendo prejuízo com isso
+complemento_compartilhado,,Não aguento mais
+complemento_compartilhado,,Preciso de retorno urgente
+cross_area,pix,Meu cartão também tava com problema
+cross_area,pix,O atendimento não me ajudou quando liguei
+cross_area,cartao,O pix também não funciona
+cross_area,cartao,Minha conta tá com problema também
+cross_area,conta,Meu cartão também foi afetado
+cross_area,conta,Nem pix consigo fazer
+cross_area,emprestimo,Minha conta ficou bloqueada por causa disso
+cross_area,emprestimo,O atendimento não soube explicar
+cross_area,investimento,Minha conta também tá com problema
+cross_area,investimento,O atendimento não resolve
+cross_area,atendimento,É sobre problema com pix
+cross_area,atendimento,O problema é com meu cartão
+cross_area,atendimento,Preciso resolver questão da conta
+nome,,João
+nome,,Maria
+nome,,Pedro
+nome,,Ana
+nome,,Carlos
+nome,,Fernanda
+nome,,Lucas
+nome,,Juliana
+nome,,Rafael
+nome,,Patricia
+nome,,Bruno
+nome,,Camila
+nome,,Diego
+nome,,Larissa
+nome,,Felipe
+nome,,Mariana
+nome,,André
+nome,,Beatriz
+nome,,Thiago
+nome,,Amanda
+nome,,Roberto
+nome,,Sandra
+nome,,Rodrigo
+nome,,Isabela
+nome,,Marcos
+nome,,Letícia
+nome,,Gustavo
+nome,,Daniela
+nome,,Eduardo
+nome,,Vanessa
+nome,,Ricardo
+nome,,Priscila
+loja,,Magazine Luiza
+loja,,Americanas
+loja,,Shopee
+loja,,Mercado Livre
+loja,,Amazon
+loja,,Casas Bahia
+loja,,Renner
+loja,,Uber
+loja,,iFood
+loja,,Netflix
+loja,,Spotify
+loja,,uma loja online
+loja,,um site que não conheço
+loja,,uma loja no shopping
+loja,,uma farmácia
+loja,,um posto de gasolina
+loja,,um restaurante
+loja,,Shein
+loja,,AliExpress
+loja,,Kabum
+loja,,Submarino
+loja,,PicPay
+loja,,Rappi
+loja,,Apple
+loja,,Google Play
+loja,,Zara
+loja,,C&A
+loja,,Riachuelo
+loja,,Centauro
+loja,,Drogasil
+loja,,Pão de Açúcar
+loja,,Carrefour
+loja,,Havan
+loja,,Leroy Merlin
+investimento,,CDB
+investimento,,LCI
+investimento,,LCA
+investimento,,Tesouro Direto
+investimento,,Tesouro Selic
+investimento,,fundo de renda fixa
+investimento,,fundo multimercado
+investimento,,ações
+investimento,,FII
+investimento,,poupança
+investimento,,Tesouro IPCA
+investimento,,CDB de liquidez diária
+investimento,,fundo imobiliário
+investimento,,debêntures
+investimento,,previdência privada
+tempo,,hoje
+tempo,,hoje de manhã
+tempo,,hoje à tarde
+tempo,,agora pouco
+tempo,,ontem
+tempo,,ontem à noite
+tempo,,anteontem
+tempo,,faz 2 dias
+tempo,,faz 3 dias
+tempo,,faz uns dias
+tempo,,essa semana
+tempo,,faz uma semana
+tempo,,faz mais de uma semana
+tempo,,faz 10 dias
+tempo,,faz duas semanas
+tempo,,desde semana passada
+tempo,,faz quase um mês
+tempo,,faz um mês
+tempo,,desde o mês passado
+erro,,erro 500
+erro,,erro de conexão
+erro,,timeout
+erro,,serviço indisponível
+erro,,tente novamente mais tarde
+erro,,operação não permitida
+erro,,limite excedido
+erro,,dados inválidos
+erro,,falha na autenticação
+erro,,erro desconhecido
+erro,,falha no servidor
+erro,,sessão expirada
