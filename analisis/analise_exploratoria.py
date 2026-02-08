@@ -1,33 +1,52 @@
 import os
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 
 IMG_DIR = os.path.join(os.path.dirname(__file__), "img")
+os.makedirs(IMG_DIR, exist_ok=True)
 
-def distribuicao_target_bar(df, target, title, xlabel, ylabel):
-    df[target].value_counts().sort_index().plot(kind='bar')
-    plt.title(title)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    nome_arquivo = f"distribuicao_{target}.png"
+
+def salvar_grafico(nome_arquivo):
     plt.savefig(os.path.join(IMG_DIR, nome_arquivo), bbox_inches="tight")
     plt.close()
+    print(f"  -> {nome_arquivo}")
 
-def distribuicao_target_crosstab(df, target1, target2, title, xlabel, ylabel):
-    crosstab = pd.crosstab(df[target1], df[target2])
-    crosstab.plot(kind='bar', stacked=True)
-    plt.title(title)
+
+def distribuicao_bar(df, coluna, titulo, xlabel, ylabel):
+    df[coluna].value_counts().sort_index().plot(kind="bar")
+    plt.title(titulo)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    nome_arquivo = f"crosstab_{target1}_{target2}.png"
-    plt.savefig(os.path.join(IMG_DIR, nome_arquivo), bbox_inches="tight")
-    plt.close()
+    salvar_grafico(f"distribuicao_{coluna}.png")
+
+
+def crosstab_bar(df, coluna1, coluna2, titulo, xlabel, ylabel):
+    pd.crosstab(df[coluna1], df[coluna2]).plot(kind="bar", stacked=True)
+    plt.title(titulo)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend(title=coluna2)
+    salvar_grafico(f"crosstab_{coluna1}_{coluna2}.png")
+
+
+def distribuicao_comprimento(df, coluna_texto, titulo, xlabel, ylabel):
+    df[coluna_texto].str.len().plot(kind="hist", bins=50)
+    plt.title(titulo)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    salvar_grafico("distribuicao_comprimento_relato.png")
+
 
 if __name__ == "__main__":
-    df = pd.read_csv("reclamacoes.csv")
-    distribuicao_target_bar(df, 'nivel_urgencia', 'Distribuição do Nível de Urgência', 'Nível de Urgência', 'Quantidade de Relatos')
-    distribuicao_target_bar(df, 'produto', 'Distribuição por Produto', 'Produto', 'Quantidade de Relatos')
-    distribuicao_target_crosstab(df, 'produto', 'nivel_urgencia', 'Nível de Urgência por Produto', 'Produto', 'Quantidade de Relatos')
-    distribuicao_target_crosstab(df, 'impacto', 'nivel_urgencia', 'Nível de Urgência por Impacto', 'Impacto', 'Quantidade de Relatos')
-    print(f"Quantidade de dados nulos:\n{df.isnull().sum()}")
-    print(f"Quantidade de dados duplicados:\n{df.duplicated().sum()}")
+    df = pd.read_csv("relatos.csv", sep=";")
+    print(f"Dataset: {len(df)} registros\n")
+
+    print("Graficos:")
+    distribuicao_bar(df, "urgencia", "Distribuicao de Urgencia", "Urgencia", "Quantidade")
+    distribuicao_bar(df, "area", "Distribuicao por Area", "Area", "Quantidade")
+    crosstab_bar(df, "area", "urgencia", "Urgencia por Area", "Area", "Quantidade")
+    distribuicao_comprimento(df, "relato", "Comprimento dos Relatos", "Caracteres", "Frequencia")
+
+    print(f"\nDados nulos:\n{df.isnull().sum()}")
+    print(f"\nDados duplicados: {df.duplicated().sum()}")
+    print(f"\nRelatos unicos: {df['relato'].nunique()} de {len(df)}")
