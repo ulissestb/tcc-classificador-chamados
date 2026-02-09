@@ -9,7 +9,6 @@ os.makedirs(IMG_DIR, exist_ok=True)
 def salvar_grafico(nome_arquivo):
     plt.savefig(os.path.join(IMG_DIR, nome_arquivo), bbox_inches="tight")
     plt.close()
-    print(f"  -> {nome_arquivo}")
 
 
 def distribuicao_bar(df, coluna, titulo, xlabel, ylabel):
@@ -39,14 +38,11 @@ def distribuicao_comprimento(df, coluna_texto, titulo, xlabel, ylabel):
 
 if __name__ == "__main__":
     df = pd.read_csv("relatos.csv", sep=";")
-    print(f"Dataset: {len(df)} registros\n")
 
-    print("Graficos:")
     distribuicao_bar(df, "urgencia", "Distribuicao de Urgencia", "Urgencia", "Quantidade")
     distribuicao_bar(df, "area", "Distribuicao por Area", "Area", "Quantidade")
     crosstab_bar(df, "area", "urgencia", "Urgencia por Area", "Area", "Quantidade")
     distribuicao_comprimento(df, "relato", "Comprimento dos Relatos", "Caracteres", "Frequencia")
 
-    print(f"\nDados nulos:\n{df.isnull().sum()}")
-    print(f"\nDados duplicados: {df.duplicated().sum()}")
-    print(f"\nRelatos unicos: {df['relato'].nunique()} de {len(df)}")
+    print(f"Graficos salvos em {IMG_DIR}")
+    print(f"Nulos: {df.isnull().sum().sum()} | Duplicados: {df.duplicated().sum()} | Unicos: {df['relato'].nunique()}/{len(df)}")

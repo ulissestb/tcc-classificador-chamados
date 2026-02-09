@@ -33,56 +33,6 @@ fechamento,,
 fechamento,,
 fechamento,,
 fechamento,,
-complemento_urgencia,baixa,Não é urgente
-complemento_urgencia,baixa,Quando puderem me responder tá tranquilo
-complemento_urgencia,baixa,Sem pressa
-complemento_urgencia,baixa,É mais uma dúvida mesmo
-complemento_urgencia,baixa,Posso esperar
-complemento_urgencia,baixa,Quero resolver com calma
-complemento_urgencia,baixa,
-complemento_urgencia,baixa,
-complemento_urgencia,baixa,
-complemento_urgencia,baixa,
-complemento_urgencia,media,Gostaria de resolver isso em breve
-complemento_urgencia,media,Preciso de retorno essa semana
-complemento_urgencia,media,Tá me incomodando
-complemento_urgencia,media,Não é urgente mas é importante
-complemento_urgencia,media,Quero resolver antes que piore
-complemento_urgencia,media,Preciso de uma resposta
-complemento_urgencia,media,
-complemento_urgencia,media,
-complemento_urgencia,media,
-complemento_urgencia,alta,Preciso resolver hoje
-complemento_urgencia,alta,Isso tá me prejudicando bastante
-complemento_urgencia,alta,Tô parado por causa disso
-complemento_urgencia,alta,Preciso de solução urgente
-complemento_urgencia,alta,Cada dia piora a situação
-complemento_urgencia,alta,Tenho compromisso que depende disso
-complemento_urgencia,alta,
-complemento_urgencia,alta,
-complemento_urgencia,alta,Se não resolverem hoje vou ter prejuízo enorme
-complemento_urgencia,alta,URGENTE
-complemento_urgencia,alta,Vou acionar a justiça se não resolverem
-complemento_urgencia,alta,Estou desesperado com isso
-complemento_urgencia,alta,Não tenho como pagar contas por causa disso
-complemento_urgencia,alta,Cada minuto perco dinheiro
-complemento_urgencia,alta,
-complemento_urgencia,alta,
-complemento_compartilhado,,Preciso resolver isso
-complemento_compartilhado,,Quero resolver de uma vez
-complemento_compartilhado,,Não sei mais o que fazer
-complemento_compartilhado,,Preciso que me ajudem
-complemento_compartilhado,,Essa situação é complicada
-complemento_compartilhado,,Já tentei sozinho e não consegui
-complemento_compartilhado,,Tô preocupado com isso
-complemento_compartilhado,,Preciso de uma solução
-complemento_compartilhado,,Tô perdendo tempo com isso
-complemento_compartilhado,,Isso tá me tirando o sono
-complemento_compartilhado,,Se não resolverem vou buscar outro caminho
-complemento_compartilhado,,Gostaria de resolver o mais rápido possível
-complemento_compartilhado,,Tô tendo prejuízo com isso
-complemento_compartilhado,,Não aguento mais
-complemento_compartilhado,,Preciso de retorno urgente
 cross_area,pix,Meu cartão também tava com problema
 cross_area,pix,O atendimento não me ajudou quando liguei
 cross_area,cartao,O pix também não funciona
@@ -208,3 +158,163 @@ erro,,falha na autenticação
 erro,,erro desconhecido
 erro,,falha no servidor
 erro,,sessão expirada
+complemento_urgencia,baixa,Queria só uma informação
+complemento_urgencia,baixa,É só uma dúvida
+complemento_urgencia,baixa,Quando puderem me responder
+complemento_urgencia,baixa,Sem pressa
+complemento_urgencia,baixa,Pode ser no prazo normal
+complemento_urgencia,baixa,Quero só entender melhor
+complemento_urgencia,baixa,Não é nada urgente
+complemento_urgencia,baixa,Tô perguntando pra me organizar
+complemento_urgencia,baixa,Posso aguardar
+complemento_urgencia,baixa,Quando tiver um tempinho
+complemento_urgencia,baixa,É mais pra controle mesmo
+complemento_urgencia,baixa,Sem correria
+complemento_urgencia,baixa,Quero resolver com calma
+complemento_urgencia,baixa,Nada grave
+complemento_urgencia,baixa,Só pra eu saber
+complemento_urgencia,baixa,Tô só conferindo
+complemento_urgencia,baixa,Pode responder quando der
+complemento_urgencia,baixa,Não tem pressa nenhuma
+complemento_urgencia,baixa,
+complemento_urgencia,baixa,
+complemento_urgencia,baixa,
+complemento_urgencia,media,Preciso resolver isso em breve
+complemento_urgencia,media,Gostaria de um retorno essa semana
+complemento_urgencia,media,Quero resolver antes que vire um problema maior
+complemento_urgencia,media,Preciso de uma posição
+complemento_urgencia,media,Já faz um tempo e não resolveram
+complemento_urgencia,media,Queria que agilizassem
+complemento_urgencia,media,Não é emergência mas preciso resolver
+complemento_urgencia,media,Tá pendente há dias
+complemento_urgencia,media,Se puderem olhar com atenção
+complemento_urgencia,media,Quero evitar que piore
+complemento_urgencia,media,Preciso resolver antes do vencimento
+complemento_urgencia,media,Seria bom resolver essa semana
+complemento_urgencia,media,Tá me atrapalhando
+complemento_urgencia,media,Preciso de uma solução em breve
+complemento_urgencia,media,Quero resolver logo pra não dar problema
+complemento_urgencia,media,Já tentei resolver sozinho e não consegui
+complemento_urgencia,media,Se demorar mais vai complicar
+complemento_urgencia,media,Preciso que analisem isso
+complemento_urgencia,media,
+complemento_urgencia,media,
+complemento_urgencia,media,
+complemento_urgencia,alta,Tô sem acesso ao meu dinheiro
+complemento_urgencia,alta,Preciso do dinheiro pra pagar conta que vence hoje
+complemento_urgencia,alta,Tão descontando dinheiro da minha conta sem autorização
+complemento_urgencia,alta,Meu salário tá preso e preciso pagar aluguel
+complemento_urgencia,alta,Tô tendo prejuízo financeiro real
+complemento_urgencia,alta,Cada dia que passa perco dinheiro
+complemento_urgencia,alta,Não consigo fazer nenhuma operação financeira
+complemento_urgencia,alta,Tô sendo cobrado por algo que já paguei
+complemento_urgencia,alta,Meu nome tá sujo por erro do banco
+complemento_urgencia,alta,Fizeram transações na minha conta sem eu autorizar
+complemento_urgencia,alta,Tô completamente bloqueado financeiramente
+complemento_urgencia,alta,Preciso resolver porque tô perdendo dinheiro
+complemento_urgencia,alta,Isso tá gerando juros e multas
+complemento_urgencia,alta,Meu cartão tá sendo usado por terceiros agora
+complemento_urgencia,alta,Preciso do estorno porque o valor é alto
+complemento_urgencia,alta,Tô sem conseguir pagar minhas contas por causa disso
+complemento_urgencia,alta,O prejuízo tá aumentando a cada dia
+complemento_urgencia,alta,Preciso que bloqueiem as transações fraudulentas
+complemento_urgencia,alta,Minha renda tá comprometida por essa cobrança
+complemento_urgencia,alta,Não posso ficar sem acesso à minha conta
+complemento_urgencia,alta,
+complemento_urgencia,alta,
+nome,_,Thiago
+nome,_,Renata
+nome,_,Cauã
+nome,_,Valentina
+nome,_,Heitor
+nome,_,Lívia
+nome,_,Enzo
+nome,_,Isabela
+nome,_,Davi
+nome,_,Helena
+nome,_,Matheus
+nome,_,Camila
+nome,_,Lorenzo
+nome,_,Giovanna
+nome,_,Murilo
+nome,_,Letícia
+nome,_,Guilherme
+nome,_,Manuela
+nome,_,Nicolas
+nome,_,Clara
+loja,_,Shopee
+loja,_,Shein
+loja,_,Mercado Livre
+loja,_,iFood
+loja,_,Uber
+loja,_,99
+loja,_,Magalu
+loja,_,Casas Bahia
+loja,_,Renner
+loja,_,Riachuelo
+loja,_,Decathlon
+loja,_,Drogasil
+loja,_,Droga Raia
+loja,_,Burger King
+loja,_,McDonalds
+loja,_,Starbucks
+loja,_,Swift
+loja,_,Havan
+loja,_,Leroy Merlin
+loja,_,Centauro
+loja,_,Zara
+saudacao,_,E aí pessoal
+saudacao,_,"Opa, tudo bem"
+saudacao,_,"Oi, boa noite"
+saudacao,_,"Olá, bom dia"
+saudacao,_,Boa noite
+saudacao,_,Alô
+saudacao,_,Oi gente
+saudacao,_,Eae
+fechamento,_, Fico no aguardo.
+fechamento,_, Agradeço a atenção.
+fechamento,_, Espero que resolvam.
+fechamento,_, Conto com vocês.
+fechamento,_, Valeu pela ajuda.
+fechamento,_, Obrigado desde já.
+fechamento,_," Att, {nome}."
+fechamento,_, Grato pela atenção.
+fechamento,_, Abraço.
+fechamento,_, Preciso de retorno.
+investimento,_,CDB pré-fixado
+investimento,_,Tesouro Selic
+investimento,_,Tesouro IPCA
+investimento,_,LCI
+investimento,_,LCA
+investimento,_,fundo multimercado
+investimento,_,debêntures
+investimento,_,COE
+investimento,_,fundo imobiliário
+investimento,_,ações
+erro,_,timeout
+erro,_,conexão recusada
+erro,_,sessão expirada
+erro,_,versão desatualizada
+erro,_,tela branca
+erro,_,não carrega
+erro,_,loop de login
+erro,_,app fecha sozinho
+erro,_,operação não permitida
+erro,_,falha de autenticação
+tempo,_,segunda-feira
+tempo,_,no fim de semana
+tempo,_,há duas semanas
+tempo,_,mês passado
+tempo,_,ontem à tarde
+tempo,_,de manhã cedo
+tempo,_,faz 3 dias
+tempo,_,semana passada
+tempo,_,faz mais de um mês
+tempo,_,essa madrugada
+tempo,_,há 20 dias
+cross_area,seguranca,Minha conta também pode estar comprometida
+cross_area,seguranca,Tô preocupado com a segurança dos meus dados
+cross_area,seguranca,Quero verificar se tem mais movimentações estranhas
+cross_area,cadastro,Meus dados cadastrais podem estar errados por causa disso
+cross_area,cadastro,Preciso verificar meu cadastro também
+cross_area,cadastro,O problema pode ser no cadastro

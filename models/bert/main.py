@@ -17,10 +17,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.utils.class_weight import compute_class_weight
 
+from models.base import LABEL_MAP, LABEL_NAMES
+
 MODEL_NAME = "neuralmind/bert-base-portuguese-cased"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-LABEL_MAP = {"baixa": 0, "media": 1, "alta": 2}
-LABEL_NAMES = ["baixa", "media", "alta"]
 
 
 class WeightedTrainer(Trainer):
@@ -34,22 +34,14 @@ class WeightedTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.pop("labels")
         outputs = model(**inputs)
-        logits = outputs.logits
         loss_fn = torch.nn.CrossEntropyLoss(weight=self.class_weights)
-        loss = loss_fn(logits, labels)
+        loss = loss_fn(outputs.logits, labels)
         return (loss, outputs) if return_outputs else loss
 
 
 def treinar_config(config, train_df, test_df, class_weights):
     nome = config["nome"]
-    print(f"\n{'='*60}")
-    print(f"  {nome}")
-    print(
-        f"  lr={config['lr']}, epochs={config['epochs']}, "
-        f"batch={config['batch_size']}, warmup={config['warmup_ratio']}, "
-        f"max_len={config['max_len']}, weight_decay={config['weight_decay']}"
-    )
-    print(f"{'='*60}")
+    print(f"\n  [{nome}] lr={config['lr']}, epochs={config['epochs']}, batch={config['batch_size']}")
 
     tokenizer = BertTokenizer.from_pretrained(MODEL_NAME)
     model = BertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=len(LABEL_NAMES)).to(DEVICE)
@@ -87,10 +79,8 @@ def treinar_config(config, train_df, test_df, class_weights):
         save_total_limit=2,
     )
 
-    use_weights = config.get("use_class_weights", True)
-
     trainer = WeightedTrainer(
-        class_weights=class_weights if use_weights else None,
+        class_weights=class_weights if config.get("use_class_weights", True) else None,
         model=model,
         args=training_args,
         train_dataset=train_ds,
@@ -107,11 +97,7 @@ def treinar_config(config, train_df, test_df, class_weights):
     y_pred = predictions.predictions.argmax(-1)
     y_true = predictions.label_ids
 
-    report = classification_report(y_true, y_pred, target_names=LABEL_NAMES)
     report_dict = classification_report(y_true, y_pred, target_names=LABEL_NAMES, output_dict=True)
-
-    print(f"\n  Resultado ({nome}):")
-    print(report)
 
     del model, trainer
     if torch.cuda.is_available():
@@ -122,23 +108,16 @@ def treinar_config(config, train_df, test_df, class_weights):
         "f1_macro": report_dict["macro avg"]["f1-score"],
         "accuracy": report_dict["accuracy"],
         "tempo": tempo,
-        "report": report,
+        "report": classification_report(y_true, y_pred, target_names=LABEL_NAMES),
     }
 
 
 if __name__ == "__main__":
-    print("=" * 60)
-    print("  TREINAMENTO BERT")
-    print("=" * 60)
-
     df = pd.read_csv("relatos.csv", sep=";")
     df["label"] = df["urgencia"].map(LABEL_MAP)
-    print(f"Dataset: {len(df)} registros\n")
 
     train_df, test_df = train_test_split(df, test_size=0.2, random_state=42, stratify=df["label"])
-
     cw = compute_class_weight("balanced", classes=np.array([0, 1, 2]), y=train_df["label"].values)
-    print(f"Class weights: {dict(zip(LABEL_NAMES, cw))}\n")
 
     configs = [
         {
@@ -173,14 +152,8 @@ if __name__ == "__main__":
         },
     ]
 
-    resultados = []
-    for config in configs:
-        r = treinar_config(config, train_df, test_df, cw)
-        resultados.append(r)
+    resultados = [treinar_config(c, train_df, test_df, cw) for c in configs]
 
-    print("\n" + "=" * 60)
-    print("  RESUMO BERT")
-    print("=" * 60)
     print(f"\n  {'Config':<25} {'Accuracy':>10} {'F1 Macro':>10} {'Tempo':>10}")
     print("  " + "-" * 55)
     for r in sorted(resultados, key=lambda x: x["f1_macro"], reverse=True):
