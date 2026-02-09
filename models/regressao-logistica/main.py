@@ -1,11 +1,13 @@
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
-from models.base import LABEL_NAMES, carregar_dados
+LABEL_NAMES = ["baixa", "media", "alta"]
 
 
 def criar_pipeline():
@@ -26,7 +28,12 @@ def plotar_matriz_confusao(y_test, y_pred):
 
 
 if __name__ == "__main__":
-    X_train, X_test, y_train, y_test = carregar_dados()
+    df = pd.read_csv("relatos.csv", sep=";")
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        df["relato"].values, df["urgencia"].values,
+        test_size=0.2, random_state=42, stratify=df["urgencia"],
+    )
 
     modelo = criar_pipeline()
     modelo.fit(X_train, y_train)

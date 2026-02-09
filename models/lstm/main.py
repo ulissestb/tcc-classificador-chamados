@@ -16,11 +16,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.utils.class_weight import compute_class_weight
 
-from models.base import LABEL_MAP, LABEL_NAMES
-
 warnings.filterwarnings("ignore")
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+LABEL_MAP = {"baixa": 0, "media": 1, "alta": 2}
+LABEL_NAMES = ["baixa", "media", "alta"]
 
 
 def tokenizar(texto):
@@ -135,7 +135,6 @@ def treinar_lstm(X_train, y_train, X_val, y_val, X_test, y_test, config, class_w
 
     for epoch in range(epochs):
         model.train()
-        total_loss = 0
         for batch_x, batch_y in train_loader:
             batch_x, batch_y = batch_x.to(DEVICE), batch_y.to(DEVICE)
             optimizer.zero_grad()
@@ -144,7 +143,6 @@ def treinar_lstm(X_train, y_train, X_val, y_val, X_test, y_test, config, class_w
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
-            total_loss += loss.item()
 
         model.eval()
         val_loss = 0

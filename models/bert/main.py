@@ -17,10 +17,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.utils.class_weight import compute_class_weight
 
-from models.base import LABEL_MAP, LABEL_NAMES
-
 MODEL_NAME = "neuralmind/bert-base-portuguese-cased"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+LABEL_MAP = {"baixa": 0, "media": 1, "alta": 2}
+LABEL_NAMES = ["baixa", "media", "alta"]
 
 
 class WeightedTrainer(Trainer):

@@ -1,8 +1,22 @@
+import time
+import warnings
+from datetime import timedelta
+
+import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import classification_report
+from sklearn.model_selection import (
+    GridSearchCV,
+    RandomizedSearchCV,
+    StratifiedKFold,
+    train_test_split,
+)
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
-from models.base import treinar_e_avaliar
+warnings.filterwarnings("ignore")
+
+LABEL_NAMES = ["baixa", "media", "alta"]
 
 
 def criar_pipeline():
@@ -25,5 +39,38 @@ def criar_grid():
     }
 
 
+def executar_grid_search(pipeline, grid, X_train, y_train, max_iter=200):
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+    total_combinacoes = 1
+    for v in grid.values():
+        total_combinacoes *= len(v)
+
+    if total_combinacoes > max_iter:
+        search = RandomizedSearchCV(
+            pipeline, grid, n_iter=max_iter, cv=cv,
+            scoring="f1_macro", n_jobs=-1, random_state=42,
+        )
+    else:
+        search = GridSearchCV(pipeline, grid, cv=cv, scoring="f1_macro", n_jobs=-1)
+
+    inicio = time.time()
+    search.fit(X_train, y_train)
+    tempo = timedelta(seconds=int(time.time() - inicio))
+
+    return search, tempo
+
+
 if __name__ == "__main__":
-    treinar_e_avaliar(criar_pipeline(), criar_grid())
+    df = pd.read_csv("relatos.csv", sep=";")
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        df["relato"].values, df["urgencia"].values,
+        test_size=0.2, random_state=42, stratify=df["urgencia"],
+    )
+
+    search, tempo = executar_grid_search(criar_pipeline(), criar_grid(), X_train, y_train)
+    y_pred = search.predict(X_test)
+
+    print(f"Tempo: {tempo} | Melhor F1 macro (CV): {search.best_score_:.4f}\n")
+    print(classification_report(y_test, y_pred, target_names=LABEL_NAMES))
